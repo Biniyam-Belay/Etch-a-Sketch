@@ -1,0 +1,10 @@
+.container{
+    gap: 1px; 
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex: 1;
+    border: 2px solid black;
+}
