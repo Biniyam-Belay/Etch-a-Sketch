@@ -6,14 +6,22 @@ function handleMouseOver(event) {
   event.target.style.backgroundColor = "#E77728";
 }
 
-// creating the boxes
-for (i = 0; i < 256; i++) {
-  divs = document.createElement("div");
-  divs.classList.add("divv");
-  divs.style.cssText =
-    "width: 40px; height: 30px; background: #EDB230; flex: 0 0 calc(6.25% - 1px);";
+function createGrid(gridsize) {
+  // let gridsize = parseInt(document.getElementById("quantity").value);
+  // creating the boxes
+  for (i = 0; i < gridsize ** 2; i++) {
+    divs = document.createElement("div");
+    divs.classList.add("divv");
+    divs.style.cssText =
+      "width: 40px; height: 30px; background: #EDB230; flex: 0 0 calc(6.25% - 1px);";
 
-  divs.addEventListener("mouseover", handleMouseOver);
+    divs.addEventListener("mouseover", handleMouseOver);
 
-  container.appendChild(divs);
+    container.appendChild(divs);
+  }
 }
+
+btn = document.getElementById("aply");
+// btn.addEventListener("click", createGrid(gridsize));
+btn.onClick = () => alert("hello");
+// console.log(gridsize);
