@@ -1,5 +1,4 @@
 const container = document.querySelector(".container");
-let gridSize;
 
 // a function that changes the color of the box n hover
 function handleMouseOver(event) {
@@ -8,12 +7,19 @@ function handleMouseOver(event) {
 }
 
 function createGrid(gridsize) {
+  // Get the container width and height
+  let containerWidth = container.clientWidth;
+  let containerHeight = container.clientHeight;
+
+  // Calculate the width and height for each grid item
+  let gridItemWidth = containerWidth / gridSize;
+  let gridItemHeight = containerHeight / gridSize;
+
   // creating the boxes
-  for (i = 0; i < gridsize * gridsize; i++) {
+  for (i = 0; i < gridsize ** 2; i++) {
     divs = document.createElement("div");
     divs.classList.add("divv");
-    divs.style.cssText =
-      "width: 40px; height: 30px; background: #EDB230; flex: 0 0 calc(6.25% - 1px);";
+    divs.style.cssText = `width: ${gridItemWidth}px; height: ${gridItemHeight}px; background: #EDB230;`;
 
     divs.addEventListener("mouseover", handleMouseOver);
 
@@ -21,10 +27,13 @@ function createGrid(gridsize) {
   }
 }
 
-
-let btn = document.getElementById('aply');
+let btn = document.getElementById("aply");
 btn.addEventListener("click", () => {
-    gridSize = parseInt(document.getElementById("quantity").value);
-    createGrid(gridSize);
-    console.log(gridSize);
+  gridSize = parseInt(document.getElementById("quantity").value);
+  // Clear the existing grid
+  container.innerHTML = "";
+  createGrid(gridSize);
+  console.log(gridSize);
 });
+
+// TODO: Updated the action button, now it creates grids with dynamic width and height but it gets out of the container so, next time try to constraint the grids within the container.
