@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+let gridSize;
 
 // a function that changes the color of the box n hover
 function handleMouseOver(event) {
@@ -7,9 +8,8 @@ function handleMouseOver(event) {
 }
 
 function createGrid(gridsize) {
-  // let gridsize = parseInt(document.getElementById("quantity").value);
   // creating the boxes
-  for (i = 0; i < gridsize ** 2; i++) {
+  for (i = 0; i < gridsize * gridsize; i++) {
     divs = document.createElement("div");
     divs.classList.add("divv");
     divs.style.cssText =
@@ -21,7 +21,10 @@ function createGrid(gridsize) {
   }
 }
 
-btn = document.getElementById("aply");
-// btn.addEventListener("click", createGrid(gridsize));
-btn.onClick = () => alert("hello");
-// console.log(gridsize);
+
+let btn = document.getElementById('aply');
+btn.addEventListener("click", () => {
+    gridSize = parseInt(document.getElementById("quantity").value);
+    createGrid(gridSize);
+    console.log(gridSize);
+});
