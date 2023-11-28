@@ -19,23 +19,26 @@ function createGrid(gridsize) {
   for (i = 0; i < gridsize ** 2; i++) {
     divs = document.createElement("div");
     divs.classList.add("divv");
-    divs.style.cssText = `width: ${gridItemWidth}px; height: ${gridItemHeight}px; background: #EDB230;`;
-
+    divs.style.cssText = `width: ${gridItemWidth}px; height: ${gridItemHeight}px; background: #EDB230; flex: 0 0 calc(6.25% -20px);"`;
     divs.addEventListener("mouseover", handleMouseOver);
 
     container.appendChild(divs);
   }
 }
 
-createGrid(16);
-
 let btn = document.getElementById("aply");
 btn.addEventListener("click", () => {
   gridsize = parseInt(document.getElementById("quantity").value);
+  // If the gridsize is less  than the min 16, it sets the gridsize back to the default, 16.
+  if (gridsize < 16) {
+    gridsize = 16;
+  }
+  
   // Clear the existing grid
   container.innerHTML = "";
   createGrid(gridsize);
-  console.log(gridsize);
 });
 
-// TODO: Updated the action button, now it creates grids with dynamic width and height but it gets out of the container so, next time try to constraint the grids within the container.
+// TODO: Updated the action button, now it creates grids with dynamic width and height but it gets out of the container so, next time try to constraint the grids within the container............. ~DONE WITH THIS.
+
+// Fixeed the above issue with the container contraint, and this is the final push, may  be I can play with ui afterwards or the extra exercise on the bottom.

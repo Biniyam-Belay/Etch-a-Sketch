@@ -22,8 +22,6 @@ h1{
     align-items: center;
 }
 .container{
-    /* padding: 3pt; */
-    gap: 1px;
     width: 600px;
     height: 500px;
     display: flex;
