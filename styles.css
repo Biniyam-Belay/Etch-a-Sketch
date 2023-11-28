@@ -22,7 +22,7 @@ h1{
     align-items: center;
 }
 .container{
-    padding: 3pt;
+    /* padding: 3pt; */
     gap: 1px;
     width: 600px;
     height: 500px;
@@ -87,5 +87,5 @@ button{
 
 .divv{
     gap: 1px;
-    border-radius: 10%;
+    /* border-radius: 10%; */
 }

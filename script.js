@@ -12,8 +12,8 @@ function createGrid(gridsize) {
   let containerHeight = container.clientHeight;
 
   // Calculate the width and height for each grid item
-  let gridItemWidth = containerWidth / gridSize;
-  let gridItemHeight = containerHeight / gridSize;
+  let gridItemWidth = containerWidth / gridsize;
+  let gridItemHeight = containerHeight / gridsize;
 
   // creating the boxes
   for (i = 0; i < gridsize ** 2; i++) {
@@ -27,13 +27,15 @@ function createGrid(gridsize) {
   }
 }
 
+createGrid(16);
+
 let btn = document.getElementById("aply");
 btn.addEventListener("click", () => {
-  gridSize = parseInt(document.getElementById("quantity").value);
+  gridsize = parseInt(document.getElementById("quantity").value);
   // Clear the existing grid
   container.innerHTML = "";
-  createGrid(gridSize);
-  console.log(gridSize);
+  createGrid(gridsize);
+  console.log(gridsize);
 });
 
 // TODO: Updated the action button, now it creates grids with dynamic width and height but it gets out of the container so, next time try to constraint the grids within the container.
